@@ -1,0 +1,24 @@
+{
+  "position": "top",
+  "height": 30,
+  "margin": "4 8 0 8",
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["clock#date", "battery"],
+  "sway/workspaces": {
+    "format": "{name}"
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip": false
+  },
+  "clock#date": {
+    "format": "{:%d %b}",
+    "tooltip": false
+  },
+  "battery": {
+    "format": "{capacity}%",
+    "tooltip-format": "{timeTo}"
+  },
+
+}
