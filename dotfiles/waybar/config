@@ -1,24 +1,72 @@
 {
-  "position": "top",
-  "height": 30,
-  "margin": "4 8 0 8",
-  "modules-left": ["sway/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["clock#date", "battery"],
-  "sway/workspaces": {
-    "format": "{name}"
-  },
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "tooltip": false
-  },
-  "clock#date": {
-    "format": "{:%d %b}",
-    "tooltip": false
-  },
-  "battery": {
-    "format": "{capacity}%",
-    "tooltip-format": "{timeTo}"
-  },
-
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 0,
+    "margin-top": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+    "exclusive": true,
+    "modules-left": [
+        "custom/launcher",
+        "sway/workspaces",
+        "mpris"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "battery"
+    ],
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+    "sway/workspaces": {
+        "format": "{icon}",
+        "all-outputs": true,
+        "disable-scroll": true,
+        "tooltip": false,
+        "format-icons": {
+            "focused": "●",
+            "default": "○",
+            "urgent": "◉"
+        }
+    },
+    "mpris": {
+        "format": "▶  {artist} — {title}",
+        "format-paused": "⏺  {artist} — {title}",
+        "max-length": 15,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰝟 muted",
+        "on-click": "pavucontrol",
+        "scroll-step": 5,
+        "tooltip": false
+    },
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 wired",
+        "format-disconnected": "󰤭 off",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}%",
+        "format-charging": "+ {capacity}%",
+        "format-plugged": "• {capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": false
+    }
 }
