@@ -1,0 +1,30 @@
+#workspaces {
+    background: rgba(15, 15, 15, 0.85);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin: 3px 3px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #888888;
+    padding: 0 4px;
+    border-radius: 0;
+    font-size: 11px;
+    min-width: 0;
+    box-shadow: none;
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+#pulseaudio        { color: #dddddd; }
+#pulseaudio.muted  { color: #666666; }
+#network           { color: #dddddd; }
+#network.disconnected { color: #666666; }
