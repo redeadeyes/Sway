@@ -1,22 +1,71 @@
 * {
-  background: transparent;
-  font-family: FontAwesome, sans-serif;
-  color: white;
-  font-size: 14px;
-}
-
-#clock, #workspaces, #battery {
-  background: rgba(255,255,255,0.08);
-  border-radius: 10px;
-  padding: 3px 10px;
+    font-family: "Liberation Sans", "Symbols Nerd Font Mono", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
 }
 
 window#waybar {
-  background: rgba(0,0,0,0.15);
+    background: transparent;
+    color: #ffffff;
+}
+
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    background: rgba(15, 15, 15, 0.85);
+    color: #eeeeee;
+    border-radius: 999px;
+    padding: 6px 18px;
+    margin: 3px 4px;
+}
+
+.modules-left > widget > *:hover,
+.modules-right > widget > *:hover {
+    background: rgba(35, 35, 35, 0.9);
+}
+
+#custom-launcher {
+    font-size: 17px;
+    padding: 6px 14px;
+}
+
+#workspaces {
+    background: rgba(15, 15, 15, 0.85);
+    border-radius: 999px;
+    padding: 6px 10px;
+    margin: 3px 4px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #888888;
+    padding: 0 4px;
+    border-radius: 0;
+    font-size: 12px;
+    min-width: 0;
+    box-shadow: none;
 }
 
 #workspaces button.focused {
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.08);
+    color: #ffffff;
 }
+
+#workspaces button:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+#mpris                { color: #dddddd; }
+#clock                { font-weight: 600; letter-spacing: 0.02em; }
+#pulseaudio           { color: #dddddd; }
+#pulseaudio.muted     { color: #666666; }
+#network              { color: #dddddd; }
+#network.disconnected { color: #666666; }
+#battery              { color: #dddddd; }
+#battery.warning      { color: #f0a500; }
+#battery.critical     { color: #e05c5c; }
