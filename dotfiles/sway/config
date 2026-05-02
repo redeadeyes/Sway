@@ -19,9 +19,9 @@ set $term foot
 set $menu wmenu-run
 
 ### Output configuration
-#
+#exec mpvpaper -o "no-audio loop" '*' /home/nikesh/Downloads/wallpapers/forest.mp4
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/nikesh/Downloads/wallpapers/black.jpeg fill
+output * bg /home/nikesh/Downloads/wallpapers/eye.jpg fill
 #
 # Example configuration:
 #
@@ -43,7 +43,10 @@ output * bg /home/nikesh/Downloads/wallpapers/black.jpeg fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
+
+   bindsym --whole-window $mod+button4 workspace prev
+   bindsym --whole-window $mod+button5 workspace next
+
 # Example configuration:
 #
 #   input type:touchpad {
@@ -60,9 +63,21 @@ output * bg /home/nikesh/Downloads/wallpapers/black.jpeg fill
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
 
+
+
 ### Key bindings
 #
 # Basics:
+
+bindsym $mod+z exec flatpak run app.zen_browser.zen
+bindsym $mod+n exec nautilus
+bindsym $mod+a exec firefox
+bindsym $mod+s exec steam
+bindsym $mod+r exec OCL_ICD_VENDORS=/etc/OpenCL/vendors/intel.icd davinci-resolve
+bindsym $mod+o exec flatpak run md.obsidian.Obsidian 
+bindsym $mod+x exec flatpak run com.brave.Browser
+bindsym $mod+y exec viber
+
 #
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -71,7 +86,7 @@ output * bg /home/nikesh/Downloads/wallpapers/black.jpeg fill
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+#    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -84,7 +99,7 @@ output * bg /home/nikesh/Downloads/wallpapers/black.jpeg fill
     bindsym $mod+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaymsg exit
+    bindsym $mod+m exec swaymsg exit
 #
 # Moving around:
 #
@@ -146,21 +161,21 @@ output * bg /home/nikesh/Downloads/wallpapers/black.jpeg fill
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    #bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    #bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    #bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -196,21 +211,21 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
 #
 # Utilities:
 #
     # Special keys to adjust volume via PulseAudio
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -1%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +1%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 1%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 1%+
     # Special key to take a screenshot with grim
    # bindsym Print exec grim
-    bindsym Print exec grim ~/Pictures/screenshot.png
+    bindsym $mod+p exec grim ~/Pictures/screenshot.png
     bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screenshot.png
 #
 # Status Bar:
@@ -239,21 +254,21 @@ input type:touchpad {
     scroll_method two_finger
 }
 
-gaps inner 8
-gaps outer 4
-default_border pixel 2
+gaps inner 13
+gaps outer 0
+default_border pixel 4
 
 
 exec waybar
 
 include /etc/sway/config.d/*
 
-set $menu dmenu_run -fn 'Fira Code-14'
+#set $menu dmenu_run -fn 'Fira Code-14'
 
 #
 
 # Window border colors
-client.focused          #89c4e1 #1a1a2e #ffffff #89c4e1 #89c4e1
-client.focused_inactive #054280 #1a1a2e #555555 #054280 #054280
-client.unfocused        #054280 #1a1a2e #555555 #054280 #054280
+client.focused          #c8c8c8 #1a1a2e #ffffff #c8c8c8 #c8c8c8
+client.focused_inactive #2a2a2a #1a1a2e #555555 #2a2a2a #2a2a2a
+client.unfocused        #1a1a1a #1a1a2e #555555 #1a1a1a #1a1a1a
 client.urgent           #FF0000 #FF0000 #ffffff #FF0000 #FF0000
