@@ -28,7 +28,7 @@
     "sway/workspaces": {
         "format": "{icon}",
         "all-outputs": true,
-        "disable-scroll": true,
+        "disable-scroll": false,
         "tooltip": false,
         "format-icons": {
             "focused": "●",
@@ -37,8 +37,8 @@
         }
     },
     "mpris": {
-        "format": "▶  {artist} — {title}",
-        "format-paused": "⏺  {artist} — {title}",
+        "format": "⏺  {artist} — {title}",
+        "format-paused": "▶  {artist} — {title}",
         "max-length": 15,
         "tooltip": false
     },
