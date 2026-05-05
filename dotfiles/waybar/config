@@ -10,13 +10,15 @@
     "modules-left": [
         "custom/launcher",
         "sway/workspaces",
-        "mpris"
+        "mpris",
+	"clock#date"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "pulseaudio",
+	"custom/brightness",
+	"pulseaudio",
         "network",
         "battery"
     ],
@@ -25,49 +27,64 @@
         "on-click": "rofi -show drun",
         "tooltip": false
     },
+
     "sway/workspaces": {
-        "format": "{icon}",
+        "format": "{name}",
         "all-outputs": true,
         "disable-scroll": false,
         "tooltip": false,
-        "persistent-workspaces": {
-        "1": [],
-        "2": [],
-        "3": []
+    "persistent-workspaces": {
+        "1": [], "2": [], "3": []
+    }
     },
-        "format-icons": {
-            "focused": "●",
-            "default": "○",
-            "urgent": "◉"
-        }
-    },
+
     "mpris": {
         "format": "⏺  {artist} — {title}",
         "format-paused": "▶  {artist} — {title}",
         "max-length": 15,
         "tooltip": false
     },
+
+    "clock#date": {
+    "format": "{:%d %b}",
+    "tooltip": false
+   },
+
     "clock": {
         "format": "{:%I:%M %p}",
         "tooltip": false
     },
+
+    "custom/brightness": {
+    "format": "<span size='xx-large'>☀</span><span rise='3500'> {}%</span>",
+    "exec": "brightnessctl get | awk -v max=$(brightnessctl max) '{printf \"%d\", $1/max*100}'",
+    "interval": 1,
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "tooltip": false
+   },
+
     "pulseaudio": {
-        "format": "󰕾 {volume}%",
-        "format-muted": "󰝟 muted",
-        "on-click": "pavucontrol",
-        "scroll-step": 5,
-        "tooltip": false
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "format-icons": {
+        "headphone": "󰋋",
+        "headset": "󰋎",
+        "default": [ "󰕾"]
+    	}
     },
+
     "network": {
         "format-wifi": "󰤨 {essid}",
         "format-ethernet": "󰈀 wired",
-        "format-disconnected": "󰤭 off",
+        "format-disconnected": "󰤭 Offline",
         "tooltip": false
     },
     "battery": {
+	"interval": 1,
         "format": "{capacity}%",
-        "format-charging": "+ {capacity}%",
-        "format-plugged": "• {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": "🗲 {capacity}%",
         "states": {
             "warning": 30,
             "critical": 15
