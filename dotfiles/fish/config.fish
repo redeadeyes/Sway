@@ -7,6 +7,7 @@ alias g4k='gammastep -O 4000 & disown'
 alias g45k='gammastep -O 4500 & disown'
 alias g5k='gammastep -O 5000 & disown'
 alias pgs='pkill gammastep'
+alias ck='tty-clock -c -s -C 7 -t'
 
 #Shortcuts
 alias ff="firefox &>/dev/null & disown"
