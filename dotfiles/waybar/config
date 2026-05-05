@@ -30,6 +30,11 @@
         "all-outputs": true,
         "disable-scroll": false,
         "tooltip": false,
+        "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": []
+    },
         "format-icons": {
             "focused": "●",
             "default": "○",
