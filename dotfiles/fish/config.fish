@@ -1,4 +1,4 @@
-#glances, btop, cava, htop, neofetch, cmatrix  :)
+#glances, btop, cava, htop, fastfetch, cmatrix, pipes.sh, :)
 #Gammastep
 alias g27k='gammastep -O 2700 & disown'
 alias g3k='gammastep -O 3000 & disown'
