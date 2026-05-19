@@ -37,3 +37,14 @@ function enc
         end
     end
 end
+
+function enc
+    for f in $argv[1]/*.mp4
+        set out $argv[2]/(basename $f .mp4).mov
+        if test -f $out
+            echo "Skipping $f, already exists"
+        else
+            ffmpeg -i $f -c:v dnxhd -profile:v dnxhr_hq -c:a pcm_s16le $out
+        end
+    end
+end
