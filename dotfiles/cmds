@@ -1,6 +1,4 @@
-mkdir -p ~/.config/sway
+mkdir -p ~/.config/sway && cp /etc/sway/config ~/.config/sway/config
 mkdir -p ~/.config/waybar
 mkdir -p ~/.config/foot
 mkdir -p ~/.config/fish
-  
-touch ~/.config/sway/config ~/.config/waybar/config ~/.config/waybar/style.css ~/.config/foot/foot.ini ~/.config/fish/config.fish
