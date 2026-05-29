@@ -5,4 +5,4 @@ font=DejaVu Sans Mono:size=16
 background=1a1a1a
 alpha=0.7
 
-#set -U fish_greeting ""
+set -U fish_greeting ""
