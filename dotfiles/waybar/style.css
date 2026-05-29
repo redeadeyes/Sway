@@ -84,5 +84,4 @@ window#waybar {
 #network              { color: #eeeeee; }
 #network.disconnected { color: #666666; }
 #battery              { color: #eeeeee; }
-#battery.warning      { color: #f0a500; }
 #battery.critical     { color: #e05c5c; }
