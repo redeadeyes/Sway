@@ -60,7 +60,7 @@
     "exec": "brightnessctl get | awk -v max=$(brightnessctl max) '{printf \"%d\", $1/max*100}'",
     "interval": 1,
     "on-scroll-up": "brightnessctl set +1%",
-    "on-scroll-down": "brightnessctl set 1%",
+    "on-scroll-down": "brightnessctl set 1%-",
     "tooltip": false
    },
 
@@ -75,7 +75,7 @@
     },
 
     "network": {
-        "format-wifi": "󰤨 {essid}",
+        "format-wifi": "󰤨   {essid}",
         "format-ethernet": "󰈀 wired",
         "format-disconnected": "󰤭 Offline",
         "tooltip": false
@@ -84,10 +84,9 @@
 	"interval": 1,
         "format": "{capacity}%",
         "format-charging": "󱐋 {capacity}%",
-        "format-plugged": "🗲 {capacity}%",
+        "format-plugged": "󱐋 {capacity}%",
         "states": {
-            "warning": 30,
-            "critical": 15
+           "critical": 20
         },
         "tooltip": false
     }
