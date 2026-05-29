@@ -1,3 +1,6 @@
+
+set fish_greeting ""
+
 #glances, btop, cava, htop, fastfetch, cmatrix, pipes.sh, :)
 #Gammastep
 alias g27k='gammastep -O 2700 & disown'
@@ -10,22 +13,14 @@ alias pgs='pkill gammastep'
 alias ck='tty-clock -c -s -C 7 -t'
 
 #Shortcuts
-alias ff="firefox &>/dev/null & disown"
-alias b="flatpak run com.brave.Browser &>/dev/null & disown"
+#
 alias c='clear'
-alias z="flatpak run app.zen_browser.zen &>/dev/null & disown"
-alias bld="blender &>/dev/null & disown"
-alias oi='flatpak run md.obsidian.Obsidian & disown'
 alias nau='nautilus & disown'
-alias vup="pamixer -i 5"
-alias vdn="pamixer -d 5"
-alias sa='steam %U &>/dev/null & disown'
 alias w='waybar & disown'
 alias kw='pkill -9 waybar'
 alias k='pkill -9 -u nikesh'
-#alias re='davinci-resolve & disown'
 alias re='OCL_ICD_VENDORS=/etc/OpenCL/vendors/intel.icd davinci-resolve & disown'
-alias v='viber & disown'
+alias bo='flatpak run com.usebottles.bottles & disown'
 
 function enc
     for f in $argv[1]/*.mp4
@@ -44,7 +39,8 @@ function enc
         if test -f $out
             echo "Skipping $f, already exists"
         else
-            ffmpeg -i $f -c:v dnxhd -profile:v dnxhr_hq -c:a pcm_s16le $out
+            # Changed profile to dnxhr_lb (Low Bandwidth) for massive space savings
+            ffmpeg -i $f -c:v dnxhd -profile:v dnxhr_lb -c:a pcm_s16le $out
         end
     end
 end
