@@ -75,7 +75,7 @@
     "network": {
         "format-wifi": "󰤨   {essid}",
         "format-ethernet": "󰈀 wired",
-        "format-disconnected": "󰤭   Nature",
+        "format-disconnected": "󰤭   Enlighted",
         "tooltip": false
     },
     "battery": {
