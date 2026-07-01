@@ -11,20 +11,20 @@
         "custom/launcher",
         "sway/workspaces",
         "mpris",
-	"clock#date"
+        "clock#date"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-	"custom/brightness",
-	"pulseaudio",
+        "custom/brightness",
+        "pulseaudio",
         "network",
         "battery"
     ],
     "custom/launcher": {
-        "format": "",
-        "on-click": "rofi -show drun",
+        "format": " ",
+        "on-click": "bash /home/nikesh/.config/waybar/apps-menu.sh",
         "tooltip": false
     },
 
@@ -33,9 +33,7 @@
         "all-outputs": true,
         "disable-scroll": false,
         "tooltip": false,
-    "persistent-workspaces": {
-        "1": [], "2": [], "3": []
-    }
+        "persistent-workspaces": {}
     },
 
     "mpris": {
@@ -46,9 +44,9 @@
     },
 
     "clock#date": {
-    "format": "{:%d %b}",
-    "tooltip": false
-   },
+        "format": "{:%b %d, %a}",
+        "tooltip": false
+    },
 
     "clock": {
         "format": "{:%I:%M %p}",
@@ -56,37 +54,38 @@
     },
 
     "custom/brightness": {
-    "format": "<span size='xx-large'>☀</span><span rise='3500'> {}%</span>",
-    "exec": "brightnessctl get | awk -v max=$(brightnessctl max) '{printf \"%d\", $1/max*100}'",
-    "interval": 1,
-    "on-scroll-up": "brightnessctl set +1%",
-    "on-scroll-down": "brightnessctl set 1%- --min-value=1",
-    "tooltip": false
-   },
+        "format": "<span size='xx-large'>☀</span><span rise='3500'> {}%</span>",
+        "exec": "brightnessctl get | awk -v max=$(brightnessctl max) '{printf \"%d\", $1/max*100}'",
+        "interval": 1,
+        "on-scroll-up": "brightnessctl set +1%",
+        "on-scroll-down": "brightnessctl set 1%- --min-value=1",
+        "tooltip": false
+    },
 
     "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "󰝟 {volume}%",
-    "format-icons": {
-        "headphone": "󰋋",
-        "headset": "󰋎",
-        "default": [ "󰕾"]
-    	}
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "default": ["󰕾"]
+        }
     },
 
     "network": {
         "format-wifi": "󰤨   {essid}",
         "format-ethernet": "󰈀 wired",
-        "format-disconnected": "󰤭 Offline",
+        "format-disconnected": "󰤭   Nature",
         "tooltip": false
     },
     "battery": {
-	"interval": 1,
-        "format": "{capacity}%",
+        "interval": 1,
+        "format": "<span size='x-large'> </span><span rise='2000'>  {capacity}%</span>",
         "format-charging": "󱐋 {capacity}%",
-        "format-plugged": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
         "states": {
-           "critical": 20
+            "warning": 30,
+            "critical": 15
         },
         "tooltip": false
     }
