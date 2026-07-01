@@ -14,6 +14,7 @@ window#waybar {
     color: #ffffff;
 }
 
+/* Global Pill Styling */
 .modules-left > widget > *,
 .modules-center > widget > *,
 .modules-right > widget > * {
@@ -31,11 +32,13 @@ window#waybar {
     background: rgba(35, 35, 35, 0.9);
 }
 
+/* Launcher Specifics */
 #custom-launcher {
     font-size: 17px;
-    padding: 6px 14px;
+    padding: 6px 19px;
 }
 
+/* Workspaces Container */
 #workspaces {
     background: rgba(15, 15, 15, 0.85);
     border-radius: 9999px;
@@ -45,43 +48,40 @@ window#waybar {
     margin: 3px 4px;
 }
 
+/* Inactive Workspace Buttons */
 #workspaces button {
     background: transparent;
-    color: #aaaaaa;
+    color: #A0A0A0;
     border-radius: 9999px;
     padding: 2px 10px;
     min-width: 24px;
     font-size: 13px;
     margin: 0 1px;
-    border: none;
-    box-shadow: none;
-    transition: padding 0.1s ease-out,
-            min-width 0.1s ease-out,
-            background 0.1s ease-out,
-            color 0.1s ease-out;
+    transition: all 0.1s ease-out;
 }
 
-#workspaces button.focused {
-    background: rgba(235, 235, 235, 0.92);
+/* ACTIVE WORKSPACE BUTTON */
+#workspaces button.focused,
+#workspaces button.active {
+    background: #C0C0C0;
     color: #111111;
     padding: 2px 18px;
     min-width: 32px;
 }
 
-#workspaces:hover {
-    background: rgba(15, 15, 15, 0.85);
-}
-
-#workspaces button:hover:not(.focused) {
+#workspaces button:hover:not(.focused):not(.active) {
     background: rgba(255, 255, 255, 0.1);
     color: #eeeeee;
 }
 
-#mpris                { color: #dddddd; }
-#clock                { font-weight: 600; letter-spacing: 0.02em; }
-#pulseaudio           { color: #eeeeee; }
+/* Individual Module Overrides */
+#mpris     { color: #dddddd; }
+#clock     { font-weight: 600; letter-spacing: 0.02em; }
+#network   { color: #eeeeee; }
+
+/* Battery & Volume Modules */
+#pulseaudio, #battery { color: #C0C0C0; }
 #pulseaudio.muted     { color: #666666; }
-#network              { color: #eeeeee; }
-#network.disconnected { color: #666666; }
-#battery              { color: #eeeeee; }
-#battery.critical     { color: #e05c5c; }
+
+#battery.discharging.warning  { color: #f0a500; }
+#battery.discharging.critical { color: #e05c5c; }
